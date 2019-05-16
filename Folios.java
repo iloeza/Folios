@@ -33,9 +33,9 @@ public class Folios {
 	try {
 		file = new FileWriter("C:/Users/ijlq_/Desktop/nueva/file.txt");
 		for(char output:folio) {
-				file.write(output);
+			file.write(output);
 		}
-		file.close();
+			file.close();
 		}
 		
 	catch(IOException e) {
