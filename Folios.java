@@ -41,6 +41,11 @@ public class Folios {
 	catch(IOException e) {
 			e.printStackTrace();
 		}
+		
+		
+	//Folio en un string
+		newfolio = new String(folio);
+		
 
 	}
 }
