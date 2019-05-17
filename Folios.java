@@ -12,15 +12,17 @@ import java.util.List;
 		List<String> listafolios = leerFolios(archivo);
 		
 		String folionuevo = crearFolio();
-		listafolios.add(folionuevo);
+		if (listafolios.contains(folionuevo)) {
+			folionuevo = crearFolio();
+		}else{
+			listafolios.add(folionuevo);	
+		}
 		guardarArchivo(listafolios, archivo);			
 	
 		}
 		
-		
-		
-		//Metodo para leer el contenido existente del archivo
-		private static List<String> leerFolios(String ubicacion){
+	//Metodo para leer el contenido existente del archivo
+	private static List<String> leerFolios(String ubicacion){
 			
 		List<String> listafolios = new ArrayList<String>();
 		
@@ -50,17 +52,17 @@ import java.util.List;
 		}
 		 catch (IOException e){}
 		 return listafolios;
-}
+	}
 		
 		
 		
-		//Metodo para guardar el folio dentro del archivo
-		private static void guardarArchivo(List<String> listafolios, String ubicacion) {
+	//Metodo para guardar el folio dentro del archivo
+	private static void guardarArchivo(List<String> listafolios, String ubicacion) {
 			
-			try {
-				BufferedWriter bw = new BufferedWriter(new FileWriter(ubicacion));
-				for(String linea:listafolios) {
-					bw.write(linea.toString() + "\r\n");
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(ubicacion));
+			for(String linea:listafolios) {
+				bw.write(linea.toString() + "\r\n");
 				}
 				bw.close();
 			}
@@ -69,8 +71,8 @@ import java.util.List;
 		
 		
 		
-		//Metodo para crear el folio
-		private static String crearFolio() {
+	//Metodo para crear el folio
+	private static String crearFolio() {
 		char arr1[] = {'A', 'B', 'C', 'D', 'E', 'F'};
 		int rand = 0;
 		char folio[] = new char[26];
@@ -88,8 +90,6 @@ import java.util.List;
 				}	
 		}
 		newfolio = new String(folio);
-		return newfolio;	
+		return ("YUC" + newfolio);	
 	}
 }
-
-
